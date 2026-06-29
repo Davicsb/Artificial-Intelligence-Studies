@@ -20,7 +20,7 @@ A pasta contém os seguintes arquivos principais que compõem o sistema:
 
 * **`__pycache__/`**: Pasta gerada automaticamente pelo Python contendo os binários compilados dos scripts para otimização de execução.
 
-* **`Relatório.pdf`**: PDF com o relátorio pedido para composição de nota
+* **`Relatório.pdf`**: PDF com o relátorio pedido para composição de nota.
 
 ## Como Executar?
 
@@ -76,32 +76,6 @@ Basta substituir todo o conteúdo do seu arquivo `README.md` por este texto:
 
 ---
 
-```markdown
-# 🧠 Repositório de Sistemas Inteligentes - Trabalho AB2
-
-Este repositório contém as soluções desenvolvidas para a avaliação da AB2 da disciplina de Inteligência Artificial (IA). O projeto é dividido em duas aplicações práticas baseadas em conhecimento: um **Motor de Sistema Especialista Genérico** (Voltado para diagnóstico veicular) e um **Akinator Inteligente de Animais** (Baseado em Teoria da Informação).
-
----
-
-## 📂 Estrutura Geral do Projeto
-
-```text
-├── questao_um/                   # Módulo do Sistema Especialista Genérico
-│   ├── core.py                   # Classes base: KB, Motor de Inferência e Explicação
-│   ├── shell.py                  # Interface de Linha de Comando (CLI) Interativa
-│   ├── demo.py                   # Script de demonstração automática com 4 cenários
-│   └── demo_vehicles.json        # Base de conhecimento de veículos salva em JSON
-│
-└── questao_dois/
-    └── akinator/                 # Módulo do Akinator de Animais
-        ├── knowledge_base.py     # Base de Conhecimento (25 animais × 21 atributos)
-        ├── engine.py             # Motor de Inferência (Entropia e Information Gain)
-        ├── akinator.py           # Interface CLI interativa para o jogo
-        └── test_metrics.py       # Script de extração automática de métricas e testes
-
-```
----
-
 ## 🐾 Questão 2.1: Akinator Inteligente de Animais
 
 Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetado para identificar um animal pensado pelo usuário através de uma sequência otimizada de perguntas booleanas.
@@ -112,6 +86,7 @@ Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetad
 * **Busca no Espaço de Hipóteses:** O motor começa considerando todos os animais como candidatos válidos e vai podando a lista dinamicamente com base nas respostas.
 * **Máxima Informação (Information Gain):** O sistema não faz perguntas aleatórias. A cada turno, calcula-se a **Entropia de Shannon** do conjunto atual de candidatos. O atributo que divide o espaço de busca o mais próximo possível de 50/50 (maior ganho de informação) é escolhido para a próxima pergunta.
 * **Resistência à Incerteza:** O sistema aceita as respostas `Sim`, `Não` e `Não Sei` (`ns`). Respostas "Não Sei" ou valores neutros (definidos como `-1` na base) não eliminam hipóteses, garantindo estabilidade ao jogo mesmo diante da dúvida humana.
+* **Relatório.pdf**: PDF com o relátorio pedido para composição de nota.
 
 ### Como Jogar e Extrair Métricas (Questão 2.1)
 
