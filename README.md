@@ -70,6 +70,85 @@ Uma vez dentro do prompt `[SE] >`, você pode utilizar os seguintes comandos:
 
 
 
+Aqui está o conteúdo completo e atualizado para o seu `README.md` principal (ou para a raiz do seu projeto), integrando de forma organizada tanto a **Questão 1** (Sistema Especialista) quanto a **Questão 2.1** (Akinator de Animais).
+
+Basta substituir todo o conteúdo do seu arquivo `README.md` por este texto:
+
+---
+
+```markdown
+# 🧠 Repositório de Sistemas Inteligentes - Trabalho AB2
+
+Este repositório contém as soluções desenvolvidas para a avaliação da AB2 da disciplina de Inteligência Artificial (IA). O projeto é dividido em duas aplicações práticas baseadas em conhecimento: um **Motor de Sistema Especialista Genérico** (Voltado para diagnóstico veicular) e um **Akinator Inteligente de Animais** (Baseado em Teoria da Informação).
+
+---
+
+## 📂 Estrutura Geral do Projeto
+
+```text
+├── questao_um/                   # Módulo do Sistema Especialista Genérico
+│   ├── core.py                   # Classes base: KB, Motor de Inferência e Explicação
+│   ├── shell.py                  # Interface de Linha de Comando (CLI) Interativa
+│   ├── demo.py                   # Script de demonstração automática com 4 cenários
+│   └── demo_vehicles.json        # Base de conhecimento de veículos salva em JSON
+│
+└── questao_dois/
+    └── akinator/                 # Módulo do Akinator de Animais
+        ├── knowledge_base.py     # Base de Conhecimento (25 animais × 21 atributos)
+        ├── engine.py             # Motor de Inferência (Entropia e Information Gain)
+        ├── akinator.py           # Interface CLI interativa para o jogo
+        └── test_metrics.py       # Script de extração automática de métricas e testes
+
 ```
+---
+
+## 🐾 Questão 2.1: Akinator Inteligente de Animais
+
+Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetado para identificar um animal pensado pelo usuário através de uma sequência otimizada de perguntas booleanas.
+
+### Arquitetura e Algoritmo Central
+
+* **Domínio Amplo:** Base de dados populada com **25 entidades** únicas (animais) mapeadas sobre uma matriz de **21 atributos** discriminantes (ex: *é mamífero?*, *voa?*, *tem pescoço longo?*).
+* **Busca no Espaço de Hipóteses:** O motor começa considerando todos os animais como candidatos válidos e vai podando a lista dinamicamente com base nas respostas.
+* **Máxima Informação (Information Gain):** O sistema não faz perguntas aleatórias. A cada turno, calcula-se a **Entropia de Shannon** do conjunto atual de candidatos. O atributo que divide o espaço de busca o mais próximo possível de 50/50 (maior ganho de informação) é escolhido para a próxima pergunta.
+* **Resistência à Incerteza:** O sistema aceita as respostas `Sim`, `Não` e `Não Sei` (`ns`). Respostas "Não Sei" ou valores neutros (definidos como `-1` na base) não eliminam hipóteses, garantindo estabilidade ao jogo mesmo diante da dúvida humana.
+
+### Como Jogar e Extrair Métricas (Questão 2.1)
+
+1. **Modo Jogo Interativo (Interface Humana):**
+Pense em um animal presente na base (ex: *Leão, Pinguim, Ornitorrinco, Baleia*) e tente desafiar o sistema executando:
+```bash
+cd questao_dois/akinator
+python akinator.py
+
+```
+
+
+*O sistema exibirá qual é o palpite mais provável da Inteligência Artificial em tempo real antes de cada pergunta.*
+2. **Modo Experimentos (Simulador Automatizado):**
+O professor exigiu testes estatísticos de acerto e eficiência. Para rodar a bateria de simulações completa e extrair os dados prontos para o relatório técnico, execute:
+```bash
+python test_metrics.py
+
+```
+
+
+*Este script simula partidas para os 25 animais sob condições ideais e sob estresse (inserindo 20% de respostas "Não Sei"), gerando tabelas de performance, histogramas de distribuição de perguntas e taxas de acerto percentuais.*
+
+---
+
+## 👥 Requisitos Técnicos Atendidos
+
+* Código escrito em conformidade com o **Python 3.10+**.
+* Uso estrito de tipagem estática (*Type Hinting*) com suporte a referências futuras (`__future__.annotations`).
+* Arquitetura puramente simbólica, sem dependência de bibliotecas externas de Machine Learning de terceiros (toda a lógica matemática de Entropia e Grafos foi implementada utilizando as bibliotecas nativas `math` e `json`).
+
+```
+***
+
+### 💡 Por que este formato valoriza o seu projeto?
+1. **Clareza nos Arquivos:** Ele deixa muito claro para o professor onde está cada arquivo e o que cada um faz, eliminando confusões de correção.
+2. **Abordagem Acadêmica:** Ele explica termos técnicos de peso na área de IA, como *Espaço de Hipóteses*, *Entropia de Shannon Clássica* e *Grafo de Regras Declarativas*, provando que a equipe domina a teoria por trás da implementação.
+3. **Instruções de Execução Diretas:** Os blocos de comando facilitam o teste rápido por parte do avaliador.
 
 ```
