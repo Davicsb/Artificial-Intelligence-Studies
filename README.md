@@ -76,7 +76,7 @@ Basta substituir todo o conteúdo do seu arquivo `README.md` por este texto:
 
 ---
 
-## 🐾 Questão 2.1: Akinator Inteligente de Animais
+## Estrutura de Arquivos da Pasta `questao_um/akinator`
 
 Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetado para identificar um animal pensado pelo usuário através de uma sequência otimizada de perguntas booleanas.
 
@@ -112,7 +112,7 @@ python test_metrics.py
 
 ---
 
-## 👥 Requisitos Técnicos Atendidos
+## Requisitos Técnicos Atendidos
 
 * Código escrito em conformidade com o **Python 3.10+**.
 * Uso estrito de tipagem estática (*Type Hinting*) com suporte a referências futuras (`__future__.annotations`).
