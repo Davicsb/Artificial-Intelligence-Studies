@@ -20,7 +20,7 @@ A pasta contém os seguintes arquivos principais que compõem o sistema:
 
 * **`__pycache__/`**: Pasta gerada automaticamente pelo Python contendo os binários compilados dos scripts para otimização de execução.
 
-* **`Relatório.pdf`**: PDF com o relátorio pedido para composição de nota.
+* **`SISTEMA ESPECIALISTA PARA DIAGNÓSTICO E RECOMENDAÇÃO DE AÇÕES.pdf`**: PDF com o relátorio pedido para composição de nota.
 
 ## Como Executar?
 
@@ -68,12 +68,6 @@ Uma vez dentro do prompt `[SE] >`, você pode utilizar os seguintes comandos:
 
 * `add_rule`: Inicia um assistente interativo para criar novas regras no sistema.
 
-
-
-Aqui está o conteúdo completo e atualizado para o seu `README.md` principal (ou para a raiz do seu projeto), integrando de forma organizada tanto a **Questão 1** (Sistema Especialista) quanto a **Questão 2.1** (Akinator de Animais).
-
-Basta substituir todo o conteúdo do seu arquivo `README.md` por este texto:
-
 ---
 
 ## Estrutura de Arquivos da Pasta `questao_um/akinator`
@@ -86,7 +80,7 @@ Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetad
 * **Busca no Espaço de Hipóteses:** O motor começa considerando todos os animais como candidatos válidos e vai podando a lista dinamicamente com base nas respostas.
 * **Máxima Informação (Information Gain):** O sistema não faz perguntas aleatórias. A cada turno, calcula-se a **Entropia de Shannon** do conjunto atual de candidatos. O atributo que divide o espaço de busca o mais próximo possível de 50/50 (maior ganho de informação) é escolhido para a próxima pergunta.
 * **Resistência à Incerteza:** O sistema aceita as respostas `Sim`, `Não` e `Não Sei` (`ns`). Respostas "Não Sei" ou valores neutros (definidos como `-1` na base) não eliminam hipóteses, garantindo estabilidade ao jogo mesmo diante da dúvida humana.
-* **Relatório.pdf**: PDF com o relátorio pedido para composição de nota.
+* **SISTEMA INTELIGENTE DE PERGUNTAS E RESPOSTAS (AKINATOR DE ANIMAIS).pdf**: PDF com o relátorio pedido para composição de nota.
 
 ### Como Jogar e Extrair Métricas (Questão 2.1)
 
@@ -97,7 +91,6 @@ cd questao_dois/akinator
 python akinator.py
 
 ```
-
 
 *O sistema exibirá qual é o palpite mais provável da Inteligência Artificial em tempo real antes de cada pergunta.*
 2. **Modo Experimentos (Simulador Automatizado):**
@@ -118,12 +111,44 @@ python test_metrics.py
 * Uso estrito de tipagem estática (*Type Hinting*) com suporte a referências futuras (`__future__.annotations`).
 * Arquitetura puramente simbólica, sem dependência de bibliotecas externas de Machine Learning de terceiros (toda a lógica matemática de Entropia e Grafos foi implementada utilizando as bibliotecas nativas `math` e `json`).
 
-```
-***
+---
 
-### 💡 Por que este formato valoriza o seu projeto?
-1. **Clareza nos Arquivos:** Ele deixa muito claro para o professor onde está cada arquivo e o que cada um faz, eliminando confusões de correção.
-2. **Abordagem Acadêmica:** Ele explica termos técnicos de peso na área de IA, como *Espaço de Hipóteses*, *Entropia de Shannon Clássica* e *Grafo de Regras Declarativas*, provando que a equipe domina a teoria por trás da implementação.
-3. **Instruções de Execução Diretas:** Os blocos de comando facilitam o teste rápido por parte do avaliador.
+## Estrutura de Arquivos da Pasta `questao_um/ontologia`
+
+Um sistema inteligente de recomendação de filmes construído sobre os pilares da **Web Semântica**, utilizando a linguagem OWL 2.0 e processamento lógico direto em Python. O sistema infere recomendações com base no perfil do usuário utilizando raciocínio semântico, sem a necessidade de condicionais tradicionais (`if/else`).
+
+### Arquitetura e Recursos Implementados
+* **Ontologia OWL 2.0:** Modelagem de domínio completa contendo mais de 10 classes (ex: `Filme`, `Diretor`, `Genero`) e 15 propriedades (Object e Data properties, como `temAtor` e `notaIMDB`).
+* **Motor de Raciocínio (Reasoner):** Integração com o motor **HermiT** através da biblioteca `Owlready2`. O reasoner é responsável por garantir a consistência da base e realizar a classificação automática de indivíduos (ex: inferir que "Matrix" é um `FilmeFiccao` com base nas suas propriedades).
+* **Regras Semânticas (SWRL):** A lógica de recomendação foi implementada puramente através de regras da Web Semântica. Exemplo: `Usuario(?u), Filme(?f), gostaDeAtor(?u, ?a), temAtor(?f, ?a) -> recomendadoPara(?u, ?f)`.
+* **Justificativas Dinâmicas:** O sistema não apenas recomenda o filme, mas extrai a justificativa lógica cruzando as interseções de grafos geradas pelo motor de inferência.
+
+### Como Executar e Testar (Questão 2.3)
+
+1. **Pré-requisitos:**
+   Certifique-se de ter a biblioteca `owlready2` instalada e o Java configurado na sua máquina (necessário para rodar o motor HermiT).
+   ```bash
+   pip install owlready2
+
+```
+
+2. **Execução do Sistema:**
+Navegue até a pasta da ontologia e execute o script principal. O sistema irá compilar as regras, rodar o motor de inferência em tempo real e exibir o resultado.
+```bash
+cd questao_dois/ontologia
+python sistema_recomendacao.py
+
+```
+
+
+3. **Resultados e Entregáveis:**
+Ao rodar o comando acima, duas coisas acontecerão:
+* O terminal exibirá o painel do **Sistema de Recomendação**, listando os filmes indicados para o usuário de teste e a *justificativa semântica* de cada escolha.
+* O sistema exportará automaticamente o arquivo físico **`ontologia_filmes.owl`**, que contém todo o grafo de conhecimento (incluindo as inferências feitas pelo HermiT) pronto para ser aberto em softwares como o *Protégé*.
+* O relatório também está presente em **SISTEMA DE RECOMENDAÇÃO BASEADO EM ONTOLOGIAS.pdf**
+
+
+
+```
 
 ```
