@@ -20,6 +20,8 @@ A pasta contém os seguintes arquivos principais que compõem o sistema:
 
 * **`__pycache__/`**: Pasta gerada automaticamente pelo Python contendo os binários compilados dos scripts para otimização de execução.
 
+* **`Relatório.pdf`**: PDF com o relátorio pedido para composição de nota
+
 ## Como Executar?
 
 O sistema foi desenhado para funcionar de duas maneiras: execução de cenários automáticos ou interface interativa.
