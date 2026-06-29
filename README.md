@@ -1,8 +1,4 @@
-# Questão 1 - Ferramenta para Construção de Sistemas Especialistas
-
-Este diretório contém a implementação de uma ferramenta genérica para a construção de sistemas baseados em conhecimento, voltada a tarefas de diagnóstico e recomendação de ações/tratamentos. A solução segue a arquitetura conceitual de um agente baseado em conhecimento, separando motor de inferência, base de regras e interface com o usuário.
-
-## Estrutura de Arquivos da Pasta `questao_um`
+# Estrutura de Arquivos da Pasta `questao_um`
 
 A pasta contém os seguintes arquivos principais que compõem o sistema:
 
@@ -70,11 +66,11 @@ Uma vez dentro do prompt `[SE] >`, você pode utilizar os seguintes comandos:
 
 ---
 
-## Estrutura de Arquivos da Pasta `questao_um/akinator`
+# Estrutura de Arquivos da Pasta `questao_um/akinator`
 
 Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetado para identificar um animal pensado pelo usuário através de uma sequência otimizada de perguntas booleanas.
 
-### Arquitetura e Algoritmo Central
+## Arquitetura e Algoritmo Central
 
 * **Domínio Amplo:** Base de dados populada com **25 entidades** únicas (animais) mapeadas sobre uma matriz de **21 atributos** discriminantes (ex: *é mamífero?*, *voa?*, *tem pescoço longo?*).
 * **Busca no Espaço de Hipóteses:** O motor começa considerando todos os animais como candidatos válidos e vai podando a lista dinamicamente com base nas respostas.
@@ -82,7 +78,7 @@ Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetad
 * **Resistência à Incerteza:** O sistema aceita as respostas `Sim`, `Não` e `Não Sei` (`ns`). Respostas "Não Sei" ou valores neutros (definidos como `-1` na base) não eliminam hipóteses, garantindo estabilidade ao jogo mesmo diante da dúvida humana.
 * **SISTEMA INTELIGENTE DE PERGUNTAS E RESPOSTAS (AKINATOR DE ANIMAIS).pdf**: PDF com o relátorio pedido para composição de nota.
 
-### Como Jogar e Extrair Métricas (Questão 2.1)
+## Como Jogar e Extrair Métricas (Questão 2.1)
 
 1. **Modo Jogo Interativo (Interface Humana):**
 Pense em um animal presente na base (ex: *Leão, Pinguim, Ornitorrinco, Baleia*) e tente desafiar o sistema executando:
@@ -113,17 +109,17 @@ python test_metrics.py
 
 ---
 
-## Estrutura de Arquivos da Pasta `questao_um/ontologia`
+# Estrutura de Arquivos da Pasta `questao_um/ontologia`
 
 Um sistema inteligente de recomendação de filmes construído sobre os pilares da **Web Semântica**, utilizando a linguagem OWL 2.0 e processamento lógico direto em Python. O sistema infere recomendações com base no perfil do usuário utilizando raciocínio semântico, sem a necessidade de condicionais tradicionais (`if/else`).
 
-### Arquitetura e Recursos Implementados
+## Arquitetura e Recursos Implementados
 * **Ontologia OWL 2.0:** Modelagem de domínio completa contendo mais de 10 classes (ex: `Filme`, `Diretor`, `Genero`) e 15 propriedades (Object e Data properties, como `temAtor` e `notaIMDB`).
 * **Motor de Raciocínio (Reasoner):** Integração com o motor **HermiT** através da biblioteca `Owlready2`. O reasoner é responsável por garantir a consistência da base e realizar a classificação automática de indivíduos (ex: inferir que "Matrix" é um `FilmeFiccao` com base nas suas propriedades).
 * **Regras Semânticas (SWRL):** A lógica de recomendação foi implementada puramente através de regras da Web Semântica. Exemplo: `Usuario(?u), Filme(?f), gostaDeAtor(?u, ?a), temAtor(?f, ?a) -> recomendadoPara(?u, ?f)`.
 * **Justificativas Dinâmicas:** O sistema não apenas recomenda o filme, mas extrai a justificativa lógica cruzando as interseções de grafos geradas pelo motor de inferência.
 
-### Como Executar e Testar (Questão 2.3)
+## Como Executar e Testar (Questão 2.3)
 
 1. **Pré-requisitos:**
    Certifique-se de ter a biblioteca `owlready2` instalada e o Java configurado na sua máquina (necessário para rodar o motor HermiT).
