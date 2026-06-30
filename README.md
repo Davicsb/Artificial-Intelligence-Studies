@@ -143,7 +143,7 @@ Ao rodar o comando acima, duas coisas acontecerão:
 
 ---
 
-## Estrutura de Arquivos da Pasta `questao_tres`
+# Estrutura de Arquivos da Pasta `questao_tres`
 
 Uma aplicação conversacional que integra Processamento de Linguagem Natural (PLN) com ferramentas de busca estruturada. O sistema atua como um assistente de recomendação de filmes, utilizando um Modelo de Linguagem de Grande Escala (LLM) rodando localmente para extrair intenções do usuário e consultar uma base de dados real, mitigando o problema de "alucinações" comuns em LLMs puros.
 
