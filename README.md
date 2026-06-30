@@ -66,7 +66,7 @@ Uma vez dentro do prompt `[SE] >`, você pode utilizar os seguintes comandos:
 
 ---
 
-# Estrutura de Arquivos da Pasta `questao_um/akinator`
+# Estrutura de Arquivos da Pasta `questao_dois/akinator`
 
 Um sistema baseado em conhecimento inspirado no famoso jogo *Akinator*, projetado para identificar um animal pensado pelo usuário através de uma sequência otimizada de perguntas booleanas.
 
@@ -109,7 +109,7 @@ python test_metrics.py
 
 ---
 
-# Estrutura de Arquivos da Pasta `questao_um/ontologia`
+# Estrutura de Arquivos da Pasta `questao_dois/ontologia`
 
 Um sistema inteligente de recomendação de filmes construído sobre os pilares da **Web Semântica**, utilizando a linguagem OWL 2.0 e processamento lógico direto em Python. O sistema infere recomendações com base no perfil do usuário utilizando raciocínio semântico, sem a necessidade de condicionais tradicionais (`if/else`).
 
