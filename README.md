@@ -126,8 +126,6 @@ Um sistema inteligente de recomendação de filmes construído sobre os pilares 
    ```bash
    pip install owlready2
 
-```
-
 2. **Execução do Sistema:**
 Navegue até a pasta da ontologia e execute o script principal. O sistema irá compilar as regras, rodar o motor de inferência em tempo real e exibir o resultado.
 ```bash
