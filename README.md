@@ -141,8 +141,44 @@ Ao rodar o comando acima, duas coisas acontecerão:
 * O sistema exportará automaticamente o arquivo físico **`ontologia_filmes.owl`**, que contém todo o grafo de conhecimento (incluindo as inferências feitas pelo HermiT) pronto para ser aberto em softwares como o *Protégé*.
 * O relatório também está presente em **SISTEMA DE RECOMENDAÇÃO BASEADO EM ONTOLOGIAS.pdf**
 
+---
 
+```markdown
+## Estrutura de Arquivos da Pasta `questao_tres`
+
+Uma aplicação conversacional que integra Processamento de Linguagem Natural (PLN) com ferramentas de busca estruturada. O sistema atua como um assistente de recomendação de filmes, utilizando um Modelo de Linguagem de Grande Escala (LLM) rodando localmente para extrair intenções do usuário e consultar uma base de dados real, mitigando o problema de "alucinações" comuns em LLMs puros.
+
+## Arquitetura e Recursos Implementados
+* **LLM Local (Llama 3.1):** Utiliza o framework `Ollama` para rodar o modelo de linguagem completamente *offline*, garantindo privacidade e processamento local.
+* **Orquestração Multi-Agente (Pipeline de 3 Fases):** O fluxo cognitivo do agente foi dividido para maior precisão:
+    1. **Gerenciamento de Diálogo:** O agente conversa com o usuário para extrair parâmetros (Gênero, Ano, Nota).
+    2. **Extração de Estado (JSON Mode):** O LLM converte a conversa imprecisa em um esquema JSON rigoroso para acionar ferramentas.
+    3. **Síntese (RAG):** O LLM recebe os dados reais retornados do banco de dados e gera a resposta final baseada exclusivamente na verdade ancorada (*Ground Truth*).
+* **Ferramentas de Busca (Tool Use):** Um módulo de busca (`busca.py`) estruturado utilizando a biblioteca `pandas` processa a base de dados `movies_metadata.csv` aplicando filtros dinâmicos e regras de negócio extraídas pelo agente.
+* **Engenharia de Prompts Estratégica:** Arquivo centralizado (`prompts.py`) que define as restrições comportamentais do agente (ex: formular apenas uma pergunta por vez, não inventar títulos e forçar o critério lógico de parada).
+* **Relatório:** Presentem em pdf (SISTEMA DE RECOMENDAÇÃO CINEMATOGRÁFICA COM AGENTES BASEADOS EM LLM.pdf).
+
+## Como Executar e Testar (Questão 3)
+
+1. **Pré-requisitos:**
+   Certifique-se de ter o [Ollama](https://ollama.com/) instalado em sua máquina e o modelo `llama3.1` baixado. Além disso, instale as dependências Python:
+   ```bash
+   pip install ollama pandas
 
 ```
 
+*(Certifique-se de ter o arquivo `movies_metadata.csv` no mesmo diretório).*
+
+2. **Execução do Agente:**
+Inicie a aplicação executando o script principal do orquestrador.
+```bash
+cd questao_tres
+python agente.py
+
 ```
+
+
+3. **Interagindo com o Sistema:**
+Ao executar o comando, o agente iniciará uma conversa no terminal.
+* **Exemplo de uso:** Responda às perguntas do agente (ex: diga que quer um filme de Ação, dos anos 90, com nota maior que 8).
+* Assim que o agente coletar todos os parâmetros necessários, ele sinalizará "PRONTO", acionará o script de busca no backend e retornará a lista de recomendações justificadas e personalizadas baseadas nos dados do CSV.
